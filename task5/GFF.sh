@@ -1,0 +1,1 @@
+cat gencode.v41.basic.annotation.gff3 | awk -F'\t' '$7 == "-" && $3 == "gene" && match($9, /gene_name=([^;]+)/) {name=substr($9, RSTART+10, RLENGTH-10); if (length(name) > 3 && name !~ /^[AZH]/) print}' > output.txt
